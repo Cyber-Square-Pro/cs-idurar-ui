@@ -64,7 +64,7 @@ const LoginPage: React.FC<any> = () => {
 
             <div className="w-full mb-1">
               <Button
-                label="Signin"
+                label="Sign in"
                 size="large"
                 textColor="#FFFFFF"
                 type="submit"
