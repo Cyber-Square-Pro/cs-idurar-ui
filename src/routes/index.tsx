@@ -3,6 +3,7 @@ import { Routes as DomRoutes, Route } from "react-router-dom";
 // import Private from "./RouteTypes/Private";
 import {
   Login,
+  SignUp
  
 } from "../screens";
 import { ROUTES } from "../utils/constants/routes";
@@ -18,11 +19,11 @@ export const RoutesData: { [key: string]: RouteDataType } = {
     component: Login,
     isPrivate: false,
   },
-  // signUp: {
-  //   path: ROUTES.signUp,
-  //   component: SignUp,
-  //   isPrivate: false,
-  // },
+  signUp: {
+    path: ROUTES.signUp,
+    component: SignUp,
+    isPrivate: false,
+  },
   // forgotPassword: {
   //   path: ROUTES.forgotPassword,
   //   component: ForgotPassword,
@@ -46,7 +47,7 @@ export default function WebRoutes() {
     
         <DomRoutes key={"DomRoutes"}>
           {Object.keys(RoutesData).map((route) => {
-            let item: RouteDataType = RoutesData[route];
+            const  item: RouteDataType = RoutesData[route];
             return (
               <Route
                 key={`web-route-${item.path}`}
