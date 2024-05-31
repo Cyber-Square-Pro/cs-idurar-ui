@@ -1,18 +1,14 @@
 import React from "react";
-
 import { yupResolver } from "@hookform/resolvers/yup";
-// import yup from "../../../utils/validations/yup";
 import { useForm } from "react-hook-form";
-// import { useNavigate } from "react-router";
-// import { ROUTES } from "../../../utils/constants/routes";
-// import { useLoginMutation } from "../../../utils/api/baseSlice";
-// import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 import { Button, Input, Password } from "../../../components/atoms";
 import { LoginSchema } from "../../../utils/schema/login.schema";
+import { useLoginMutation } from "../../../services/baseSlice";
 
-const LoginComponent: React.FC<any> = () => {
-//   const [login, { isLoading: isUpdating }] = useLoginMutation();
+const LoginPage: React.FC<any> = () => {
+  const [login] = useLoginMutation();
 
   const {
     handleSubmit,
@@ -22,22 +18,19 @@ const LoginComponent: React.FC<any> = () => {
     resolver: yupResolver(LoginSchema),
   });
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = async (data: any) => {
-    console.log(data)
-    // let res: any = await login(data);
-   
-    // if(res?.data.statusCode == 200){
-    //   navigate("/dashboard")
-    // }
-    // else{
-    //   toast.error(res?.data.message);
-    // }
-    // if (!res.data?.success) {
-    //   if (res.error?.data) {
-    //   }
-    // }
+    let res: any = await login(data);
+    console.log(res?.data)
+  
+    if(res?.data.statusCode == 200){
+      navigate("/dashboard")
+    }
+    else{
+      toast.error(res?.data.message);
+    }
+     
   };
 
   return ( 
@@ -71,7 +64,7 @@ const LoginComponent: React.FC<any> = () => {
 
             <div className="w-full mb-1">
               <Button
-                label="Login in"
+                label="Signin"
                 size="large"
                 textColor="#FFFFFF"
                 type="submit"
@@ -79,7 +72,6 @@ const LoginComponent: React.FC<any> = () => {
             </div>
            
           </form>
-          <Link to="/signup" className="py-2">Dont have an account? Signup.</Link>
        </div> 
 
      
@@ -87,4 +79,4 @@ const LoginComponent: React.FC<any> = () => {
 
 };
 
-export default LoginComponent;
+export default LoginPage;

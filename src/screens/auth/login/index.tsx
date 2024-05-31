@@ -1,9 +1,9 @@
 import React from "react";
-import LoginComponent from "./Login";
+import LoginPage from "./LoginPage";
 
 const Login: React.FC<any> = () => {
   return (
-      <LoginComponent />
+      <LoginPage />
   );
 };
 
