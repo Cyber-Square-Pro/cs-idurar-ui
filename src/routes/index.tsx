@@ -1,11 +1,7 @@
 import { Routes as DomRoutes, Route } from "react-router-dom";
  
 // import Private from "./RouteTypes/Private";
-import {
-  Login,
-  SignUp
- 
-} from "../screens";
+import { Login } from "../screens";
 import { ROUTES } from "../utils/constants/routes";
 import { RouteDataType } from "./types";
 import Public from "./route-types/public";
@@ -19,11 +15,7 @@ export const RoutesData: { [key: string]: RouteDataType } = {
     component: Login,
     isPrivate: false,
   },
-  signUp: {
-    path: ROUTES.signUp,
-    component: SignUp,
-    isPrivate: false,
-  },
+
   // forgotPassword: {
   //   path: ROUTES.forgotPassword,
   //   component: ForgotPassword,
