@@ -1,5 +1,5 @@
 import { InputProps } from ".";
-import LabelEmpty from "../labelCard/LabelEmpty";
+import LabelEmpty from "../label-card/LabelEmpty";
 
 interface Props extends InputProps {
   opacity?: number;
