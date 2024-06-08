@@ -13,7 +13,7 @@ const DashboardTemplate: React.FC<Props> = ({ children }) => {
     <div className="relative ">
         <Header/>
         <div className=" flex gap-10 ">
-            <div  className="mt-10">
+            <div  >
             <SideBar/>        
 
             </div>
