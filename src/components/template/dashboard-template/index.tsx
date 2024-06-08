@@ -28,7 +28,7 @@ const DashboardTemplate: React.FC<Props> = ({ children }) => {
             {children}
           </MobileNavigation>
         ) : (
-            <div  className="mt-10">
+            <div >
             <Navigation
             footer={ <img
               alt="nav"
