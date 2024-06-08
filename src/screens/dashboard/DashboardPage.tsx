@@ -2,7 +2,9 @@
 
 const DashboardPage = () => {
   return (
-    <div>DashboardPage</div>
+    <div className="  w-screen h-screen border border-gray-600">
+      DashboardPage
+    </div>
   )
 }
 

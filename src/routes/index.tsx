@@ -6,6 +6,7 @@ import { ROUTES } from "../utils/constants/routes";
 import { RouteDataType } from "./types";
 import Public from "./route-types/public";
 import DashboardPage from "../screens/dashboard/DashboardPage";
+import Private from "./route-types/private";
 // import { GlobalDialog } from "../components/organisms";
 // import { BaseTemplate } from "../components/template";
 // import DashboardComponent from "../screens/Dashboard/Dashboard";
@@ -20,7 +21,7 @@ export const RoutesData: { [key: string]: RouteDataType } = {
   dashboard: {
     path: ROUTES.dashboard,
     component: DashboardPage,
-    isPrivate: false,
+    isPrivate: true,
   },
 
   // forgotPassword: {
@@ -52,16 +53,15 @@ export default function WebRoutes() {
                 key={`web-route-${item.path}`}
                 path={item.path}
                 element={
-                  // item.isPrivate ? (
-                    // <Private
-                    //   element={item.component}
-                    //   sideBar={!!item?.sidebarDisable}
-                    // />
-                  // ) : (
+                  item.isPrivate ? (
+                    <Private
+                      element={item.component}                    
+                    />
+                  ) : (
                     <Public
                       element={item.component}
                     />
-                  // )
+                  )
                 }
               />
             );
