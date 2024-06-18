@@ -8,7 +8,7 @@ const AuthTemplate: React.FC<Props> = ({ children }) => {
 
   return (
     // <div className="h-full relative ">
-    <div className="flex flex-col md:flex-row h-full justify-center items-center">
+    <div className="flex flex-col md:flex-row h-full justify-center items-center mt-32 ml-20">
      <div className=" w-full md:w-[40%] flex flex-col justify-center items-center p-8 mb-8 md:mb-0">
       <div className="mb-4">
         <img src={logo} height="200px" width="300px" alt="logo" />
