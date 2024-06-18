@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 const TextButton: React.FC<ButtonProps> = ({
-  textColor = "black",
+  textColor ,
   label,
   onClick = () => {},
   isLoading = false,

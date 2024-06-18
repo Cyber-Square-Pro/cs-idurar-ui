@@ -2,21 +2,24 @@
 import Search from "../../atoms/search";
 import ButtonIcon from "../../atoms/buttonIcon";
 import { Icons } from "../icons/icons";
+import DashboardComponent from "../../../screens/dashboard/DashboardPage";
 
 
+// Define the content components for each sidebar item
 
-const sidebar_top_items = [
-  { icon: Icons.HomeIcon, title: "Home" },
-  { icon: Icons.Work, title: "My Work" },
+const ContactsContent = () => <div>Contacts Content</div>;
+const EnquiriesContent = () => <div>Enquiries Content</div>;
+const CoursesContent = () => <div>Courses Content</div>;
+
+// Define sidebar items with their respective components
+export const sidebarItems = [
+  { icon: Icons.HomeIcon, title: "Dashboard", component: DashboardComponent },
+  { icon: Icons.ContactIcon, title: "Contacts", component: ContactsContent },
+  { icon: Icons.EnquiryIcon, title: "Enquiries", component: EnquiriesContent },
+  { icon: Icons.CourseIcon, title: "Courses", component: CoursesContent },
 ];
 
-const sidebar_items = [
-  { icon: Icons.ContactIcon, title: "Contacts" },
-  { icon: Icons.EnquiryIcon, title: "Enquiries" },
-  { icon: Icons.CourseIcon, title: "Courses" },
-];
-
-const Sidebar = () => {
+const Sidebar: React.FC<{ onItemClick: (item: typeof sidebarItems[0]) => void }> = ({ onItemClick }) => {
   const handleSearchChange = (searchKey: string) => {
     console.log("Search key:", searchKey);
   };
@@ -28,10 +31,11 @@ const Sidebar = () => {
   return (
     <>
       <div>
-        {sidebar_top_items?.map((item, index) => (
+        {sidebarItems?.map((item, index) => (
           <div
             className="w-[250px] h-10 m-3 mr-3 cursor-pointer hover:bg-green-100 active:bg-green-100 font-medium rounded-sm hover:shadow-md ps-3 py-3"
             key={index}
+            onClick={() => onItemClick(item)}
           >
             {item.icon} {item.title}
           </div>
@@ -53,16 +57,7 @@ const Sidebar = () => {
         </div>
       
       </div>
-      <div className="py-3">
-        {sidebar_items?.map((item, index) => (
-          <div
-            className="w-[250px] h-10 m-3 mr-3 cursor-pointer hover:bg-green-100 active:bg-green-100 font-medium rounded-sm hover:shadow-md ps-3 py-3"
-            key={index}
-          >
-            {item.icon} {item.title}
-          </div>
-        ))}
-      </div>
+   
     </>
   );
 };

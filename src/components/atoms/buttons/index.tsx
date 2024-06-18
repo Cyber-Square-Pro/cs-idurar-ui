@@ -12,6 +12,8 @@ interface ButtonProps {
   className?: string;
   isLoading?: boolean;
   disabled?: boolean;
+  border?: string; 
+
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -24,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   isLoading = false,
   disabled = false,
+  border ="none"
 }) => {
   return (
     <button
@@ -31,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`storybook-button--${size} rounded-md ${className} ${
         disabled && "cursor-not-allowed"
       }`}
-      style={{ backgroundColor: backgroundColor, color: textColor }}
+      style={{ backgroundColor: backgroundColor, color: textColor ,border:border}}
       onClick={() => {
         onClick();
       }}

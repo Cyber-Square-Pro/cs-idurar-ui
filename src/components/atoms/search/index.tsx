@@ -2,7 +2,7 @@
 
 interface Props {
   placeholder: string;
-  onChange: (key: string) => void;
+  onChange?: (key: string) => void;
   defaultValue?: string | undefined | null;
 }
 
