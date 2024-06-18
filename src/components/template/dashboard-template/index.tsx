@@ -3,7 +3,7 @@ import SideBar from "../../organisms/sidebar";
 import Header from "../../molecules/header";
 import Navigation from "../../organisms/navigation/navigation";
 import MobileNavigation from "../../organisms/navigation/mobile-navigation";
-import logo from "../../../assets/icons/cs-pro-logo.jpeg";
+// import logo from "../../../assets/icons/cs-pro-logo.jpeg";
 import { MobileContext } from "../../../App";
 
 
@@ -16,10 +16,10 @@ const DashboardTemplate: React.FC<Props> = ({ children }) => {
   const value = React.useContext(MobileContext);
 
   return (
-    <div className="relative ">
+    <div className="relative flex flex-col min-h-screen ">
 
         <Header/>
-        <div className=" flex gap-10 ">
+        <div className=" flex gap-10 mt-16">
         {value.isMobile ? ( 
           <MobileNavigation
           
@@ -31,8 +31,9 @@ const DashboardTemplate: React.FC<Props> = ({ children }) => {
             <div >
             <Navigation
             footer={ <img
-              alt="nav"
-              src={logo}
+              alt=""
+              src=
+              ''
              className="cursor-pointer mx-5 w-[250px] h-auto md:w-[250px] md:h-auto"
               // onClick={() => navigate(ROUTES.dashboard)}
             />}
