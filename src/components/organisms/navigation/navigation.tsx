@@ -1,42 +1,38 @@
 import React from "react";
 
+/*
+  Author: Reshma on June 7th, 2024
+  Purpose: Renders a navigation layout.
+  Props:
+    - children: React.ReactNode - The main content to be displayed.
+    - footer: React.ReactNode - The footer component to be displayed.
+    - sidebar: React.ReactNode - The sidebar content to be displayed.
+  Updated by: - Muhammed Adnan on June 13th, 2024 - Enhance Layout and Style
+*/
+
 export interface Route {
   name: string;
   image?: string;
   href: string;
   selectedIcon?: string;
- // includes?: any;
 }
 
 type Props = {
   children: React.ReactNode;
-//   title: string|React.ReactNode;
-  //routes: Route[];
   footer: React.ReactNode;
   sidebar: React.ReactNode;
-
 };
 
-const Navigation: React.FC<Props> = ({ children ,footer,sidebar}) => {
- 
-
+const Navigation: React.FC<Props> = ({ children, footer, sidebar }) => {
   return (
-    <div className="flex flex-row	h-1/3 overflow-hidden">
-      <div className=" h-screen max-w-[400px] min-w-[300px]">
-        <div className=" h-screen overflow-hidden absolute border-r border-t border-b rounded-2xl min-w-[300px] bg-white">
-         {/* <div className="flex justify-start mt-[20px] ">{title}</div>  */}
-       
-          {sidebar}
-
-          <div className="mb-0 mt-40">
-          {footer}
-         </div>
-
+    <div className="flex h-full w-screen overflow-hidden gap-2">
+      <div className="relative h-full max-w-[400px] min-w-[300px] flex-shrink-0">
+        <div className="absolute inset-0 flex flex-col border-r border-t border-b rounded-tr-lg bg-zinc-100">
+          <div className="flex-grow overflow-auto">{sidebar}</div>
+          <div className="mt-auto">{footer}</div>
         </div>
-      
       </div>
-     
-      <div className="w-full p-5 overflow-x-hidden hideScroll">{children}</div>
+      <div className="flex-grow w-full rounded-tl-lg overflow-auto border">{children}</div>
     </div>
   );
 };
