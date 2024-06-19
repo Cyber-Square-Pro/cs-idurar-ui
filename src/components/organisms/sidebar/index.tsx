@@ -16,7 +16,7 @@ const sidebar_top_items = [
 const sidebar_items = [
   { icon: Icons.ContactIcon, title: "Contacts" },
   { icon: Icons.EnquiryIcon, title: "Enquiries" },
-  { icon: Icons.CourseIcon, title: "Courses" },
+  { icon: Icons.CourseIcon, title: "Courses" , href: "/dashboard/courses"},
 ];
 
 const Sidebar = () => {
@@ -68,3 +68,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+

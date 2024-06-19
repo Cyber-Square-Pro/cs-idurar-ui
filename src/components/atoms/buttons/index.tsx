@@ -17,7 +17,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   size = "medium",
   backgroundColor = "#0000FF",
-  textColor = "black",
+  textColor = "white",
   label,
   type = "button",
   onClick = () => {},
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
       }}
       disabled={disabled || isLoading}
     >
-      <div className={`flex flex-row justify-center items-center gap-2 ${disabled ? "text-[#646464]" : "" }`}>
+      <div className={`flex flex-row justify-center items-center gap-2 font-semibold ${disabled ? "text-[#646464]" : "" }`}>
         {isLoading ? <ClipLoader color={"#ffffff"} size={22} /> : null}
         <span>{label}</span>
       </div>

@@ -6,6 +6,7 @@ import { ROUTES } from "../utils/constants/routes";
 import { RouteDataType } from "./types";
 import Public from "./route-types/public";
 import DashboardPage from "../screens/dashboard/DashboardPage";
+import CoursePage from "../screens/courses/CoursePage";
 import Private from "./route-types/private";
 // import { GlobalDialog } from "../components/organisms";
 // import { BaseTemplate } from "../components/template";
@@ -21,6 +22,12 @@ export const RoutesData: { [key: string]: RouteDataType } = {
   dashboard: {
     path: ROUTES.dashboard,
     component: DashboardPage,
+    isPrivate: true,
+  },
+
+  courses: {
+    path: ROUTES.courses,
+    component: CoursePage,
     isPrivate: true,
   },
 
