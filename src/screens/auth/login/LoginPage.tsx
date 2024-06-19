@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { Button, Input, Password } from "../../../components/atoms";
 import { LoginSchema } from "../../../utils/schema/login.schema";
 import { useLoginMutation } from "../../../services/baseSlice";
+import { Link } from "react-router-dom";
 
 const LoginPage: React.FC<any> = () => {
   const [login] = useLoginMutation();
@@ -37,9 +38,9 @@ const LoginPage: React.FC<any> = () => {
     
     
    
-     <div className="max-w-lg w-full  dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center">
+    <div className="max-w-lg w-full  dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 flex flex-col items-center mt-20 ml-20 mb-20">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-[32px] font-bold text-center text-gray-950 dark:text-gray-200 mb-8">
+            <h1 className="text-[32px] font-bold text-center text-gray-950 dark:text-gray-200 mb-8 ">
               Login to CS-Pro CRM
             </h1>
 
@@ -60,6 +61,10 @@ const LoginPage: React.FC<any> = () => {
                 placeholder="Enter password"
                 register={register}
                 title="" />
+            </div>
+
+            <div>
+              <Link to='/forgotpassword'><p className="w-full mb-1 text-blue-500 text-right">Forgot Password?</p></Link>
             </div>
 
             <div className="w-full mb-1">

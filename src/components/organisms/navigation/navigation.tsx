@@ -1,5 +1,15 @@
 import React from "react";
 
+/*
+  Author: Reshma on June 7th, 2024
+  Purpose: Renders a navigation layout.
+  Props:
+    - children: React.ReactNode - The main content to be displayed.
+    - footer: React.ReactNode - The footer component to be displayed.
+    - sidebar: React.ReactNode - The sidebar content to be displayed.
+  Updated by: - Muhammed Adnan on June 13th, 2024 - Enhance Layout and Style
+*/
+
 export interface Route {
   name: string;
   image?: string;
@@ -15,22 +25,14 @@ type Props = {
 
 const Navigation: React.FC<Props> = ({ children, footer, sidebar }) => {
   return (
-    <div className="flex flex-row w-full h-screen overflow-hidden">
-      <div className="h-full max-w-xs min-w-[300px] flex-shrink-0 relative">
-        <div className="h-full overflow-hidden border-r border-t border-b rounded-2xl min-w-[300px] bg-white absolute top-0 left-0">
-          {sidebar}
-          <div className="absolute bottom-0 w-full">
-            {footer}
-          </div>
+    <div className="flex h-full w-screen overflow-hidden gap-2">
+      <div className="relative h-full max-w-[400px] min-w-[300px] flex-shrink-0">
+        <div className="absolute inset-0 flex flex-col border-r border-t border-b rounded-tr-lg bg-zinc-100">
+          <div className="flex-grow overflow-auto">{sidebar}</div>
+          <div className="mt-auto">{footer}</div>
         </div>
       </div>
-      
-      {/* Main content */}
-      <div className="flex-grow ml-12 border-2 overflow-x-hidden  overflow-y-auto hideScroll">
-        <div className="h-full w-full pr-14">
-          {children}
-        </div>
-      </div>
+      <div className="flex-grow w-full rounded-tl-lg overflow-auto border">{children}</div>
     </div>
   );
 };
