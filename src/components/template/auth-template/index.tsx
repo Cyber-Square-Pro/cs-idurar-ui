@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../assets/icons/cs-pro-logo.jpeg";
+import logo from "../../../assets/icons/csprologo.jpg";
 type Props = {
   children: React.ReactNode;
 };
