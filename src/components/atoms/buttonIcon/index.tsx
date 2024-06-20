@@ -19,7 +19,7 @@ interface Props {
 
 export default function ButtonIcon({ icon, onClick ,textColor,label,border}: Props) {
   return (
-    <div className="cursor-pointer rounded-md justify-center p-2" onClick={onClick}
+    <div className="cursor-pointer rounded-md justify-center p-2 flex-shrink xs:p-0" onClick={onClick}
      style={{color:textColor, border:border}}>
       {icon} {label}
     </div>

@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       }}
       disabled={disabled || isLoading}
     >
-      <div className={`flex flex-row justify-center items-center gap-2 ${disabled ? "text-[#646464]" : "" }`}>
+      <div className={`flex flex-row justify-center items-center flex-shrink gap-2 ${disabled ? "text-[#646464]" : "" }`}>
         {isLoading ? <ClipLoader color={"#ffffff"} size={22} /> : null}
         <span>{label}</span>
       </div>

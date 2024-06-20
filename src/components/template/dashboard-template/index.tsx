@@ -1,20 +1,16 @@
+import React, { useContext, ReactNode } from 'react';
+import { MobileContext } from '../../../App';
+import SideBar from '../../organisms/sidebar';
+import Header from '../../molecules/header';
+import Navigation from '../../organisms/navigation/navigation';
+import MobileNavigation from '../../organisms/navigation/mobile-navigation';
+import logo from '../../../assets/icons/cs-pro-logo.jpeg';
 
-import SideBar ,{sidebarItems} from "../../organisms/sidebar";
-import Header from "../../molecules/header";
-import Navigation from "../../organisms/navigation/navigation";
-import MobileNavigation from "../../organisms/navigation/mobile-navigation";
-import logo from "../../../assets/icons/cs-pro-logo.jpeg";
-import { MobileContext } from "../../../App";
-import { useState,useContext } from "react";
+interface DashboardTemplateProps {
+  children?: ReactNode;
+}
 
-
-import React from "react";
-type Props = {
-  children: React.ReactNode;
-};
-
-const DashboardTemplate: React.FC<Props> = ({children}) => {
-  const [selectedItem, setSelectedItem] = useState(sidebarItems[0]);
+const DashboardTemplate: React.FC<DashboardTemplateProps> = ({ children }) => {
   const value = useContext(MobileContext);
 
   return (
@@ -22,7 +18,6 @@ const DashboardTemplate: React.FC<Props> = ({children}) => {
       {value.isMobile ? (
         <div className="w-screen">
           <MobileNavigation
-            sidebar={<SideBar onItemClick={setSelectedItem}/>}
             footer={
               <img
                 alt="nav"
@@ -30,8 +25,9 @@ const DashboardTemplate: React.FC<Props> = ({children}) => {
                 className="cursor-pointer mx-5 w-[250px] h-auto md:w-[250px] md:h-auto"
               />
             }
+            sidebar={<SideBar />}
           >
-            <div className="flex-grow h-full  overflow-auto">{children}</div>
+            {children}
           </MobileNavigation>
         </div>
       ) : (
@@ -44,15 +40,11 @@ const DashboardTemplate: React.FC<Props> = ({children}) => {
                   alt="nav"
                   src={logo}
                   className="cursor-pointer mx-5 w-[250px] h-auto md:w-[250px] md:h-auto"
-                  // onClick={() => navigate(ROUTES.dashboard)}
                 />
               }
-              // routes={routes(t)}
-              // title={" " }
-              sidebar={<SideBar onItemClick={setSelectedItem} />}
+              sidebar={<SideBar  />}
             >
-           {/* Render the selected component */}
-           {children ? children : React.createElement(selectedItem.component)}
+              {children }
             </Navigation>
           </div>
         </>
