@@ -20,7 +20,7 @@ export default function LabelInput({
   onClick = () => {},
   // pattern=""
 }: Props) {
-  if (disabled && !!!value) {
+  if (disabled && !!value) {
     return (
       <div onClick={onClick} className="w-full cursor-pointer">
         <LabelEmpty label={title} value={value} />

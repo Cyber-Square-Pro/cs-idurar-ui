@@ -1,27 +1,17 @@
-// import { useTranslation } from "react-i18next";
-/*
-  Author: Reshma on June 7th, 2024
-  Purpose: Renders a search input with an icon
-  Props:
-    - placeholder: string - The placeholder text for the input field.
-    - onChange: (key: string) => void - Function to be called when the input value changes.
-    - defaultValue?: string | undefined | null - The default value of the input field.
-  updated by: - Mohammed Adnan on June 13th, 2024 - Enhance Style
-*/
+import React from 'react';
 
 interface Props {
   placeholder: string;
-  onChange: (key: string) => void;
+  onChange?: (key: string) => void;
   defaultValue?: string | undefined | null;
 }
 
-export default function Search({
+const Search: React.FC<Props> = ({
   placeholder,
   onChange,
   defaultValue = "",
   ...otherProps
-}: Props) {
-  // const {t} = useTranslation('translation', { keyPrefix: "constants"})
+}) => {
   return (
     <div className="relative w-full">
       <div className="absolute top-1/2 left-0 flex items-center pl-3 transform -translate-y-1/2 pointer-events-none">
@@ -48,13 +38,15 @@ export default function Search({
       <input
         type="text"
         id="simple-search"
-        className="text-black border-2 text-start border-gray-300 focus:border-blue-500 focus:outline-none text-md rounded-md block w-full pl-9 p-2 bg-zinc-100"
+        className="text-black bg-slate-300 bg-opacity-80 border text-start border-primary focus:border-primary focus:outline-none text-md rounded-lg block w-full pl-14 p-3 "
         placeholder={placeholder}
         required
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange && onChange(e.target.value)}
         defaultValue={defaultValue || ""}
         {...otherProps}
       />
     </div>
   );
-}
+};
+
+export default Search;

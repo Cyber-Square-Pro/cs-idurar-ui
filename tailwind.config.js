@@ -7,6 +7,18 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.hideScroll': {
+          overflowY: 'scroll',
+          scrollbarWidth: 'none',
+        },
+        '.hideScroll::-webkit-scrollbar': {
+          display: 'none',
+        }
+      })
+    },
+  ],
 }
 
