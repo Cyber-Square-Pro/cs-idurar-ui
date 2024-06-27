@@ -10,6 +10,7 @@ import Private from "./route-types/private";
 // import { GlobalDialog } from "../components/organisms";
 // import { BaseTemplate } from "../components/template";
 // import DashboardComponent from "../screens/Dashboard/Dashboard";
+import CoursePage from "../screens/courses/CoursePage";
 
 export const RoutesData: { [key: string]: RouteDataType } = {
   base: {
@@ -21,6 +22,12 @@ export const RoutesData: { [key: string]: RouteDataType } = {
   dashboard: {
     path: ROUTES.dashboard,
     component: DashboardPage,
+    isPrivate: true,
+  },
+
+  courses: {
+    path: ROUTES.courses,
+    component: CoursePage,
     isPrivate: true,
   },
 

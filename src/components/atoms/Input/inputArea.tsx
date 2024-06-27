@@ -19,9 +19,9 @@ export default function InputArea({
 }: Props) {
   return (
     <div className={className}>
-      {!!title && (
+      {title && (
         <div className="flex justify-between ">
-          <p className="text-[14px] text-white ml-1 mb-2">{title}</p>
+          <p className="text-[14px] text-black ml-1 mb-2">{title}</p>
         </div>
       )}
       <TextArea
@@ -30,7 +30,7 @@ export default function InputArea({
         {...register(name, { required: true })}
       />
       {error && (
-        <p className="text-[12px] mt-1 ml-1 text-[red]">{error.message}</p>
+        <p className="text-[12px] ml-1 text-[red]">{error.message}</p>
       )}
     </div>
   );
@@ -39,7 +39,7 @@ export default function InputArea({
 export function TextArea(props: any) {
   return (
     <textarea
-      className={`text-white bg-transparent border-2 text-start border-gray-400 w-full focus:border-primary focus:outline-none rounded-[10px] text-sm px-4 py-2.5 inline-flex items-center `}
+      className={`text-black bg-transparent border-2 text-start border-gray-400 w-full focus:border-primary focus:outline-none rounded-[10px] text-sm px-4 py-2.5 inline-flex items-center `}
       {...props}
     />
   );
