@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   isLoading = false,
   disabled = false,
-  border ="none"
+  border =""
 }) => {
   return (
     <button
